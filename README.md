@@ -8,13 +8,13 @@ a multi-container Docker application to run an [IPFS node](https://hub.docker.co
 1. put your `*.ovpn` file into `./openvpn`
 1. run `docker-compose up`
 
-if everything works correctly, go-ipfs should be running behind your OpenVPN client!
+if everything works correctly, go-ipfs should be running behind your VPN!
 
 the IPFS web UI should be accessible at http://localhost:5001/webui
 
 the IPFS gateway should be accessible at http://localhost:8080 e.g. http://localhost:8080/ipfs/QmVmtux8UCk8553R2qVa7CBYJbQ11hfyswqEJmTLYCugPx?.png
 
-if you want to use this persistently, you should
+if you want to use this persistently, you should probably
 1. change the locations of the `ipfs-node-data-volume` & `downloads-volume`
 1. forward port 4001 with your VPN provider (or pick a different port)
 
