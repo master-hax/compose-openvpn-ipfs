@@ -16,7 +16,7 @@ the IPFS gateway should be accessible at http://localhost:8080 e.g. http://local
 
 if you want to use this persistently, you should
 1. change the locations of the `ipfs-node-data-volume` & `downloads-volume`
-1. add port forwarding rules using the `vpn-sidecar` environment variables
+1. forward port 4001 with your VPN provider (or pick a different port)
 
 ## how it works
 
