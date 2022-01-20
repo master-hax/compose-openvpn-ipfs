@@ -1,4 +1,4 @@
-# compose-vpn-ipfs
+# compose-openvpn-ipfs
 
 a multi-container Docker application to run an [IPFS node](https://hub.docker.com/r/linuxserver/ipfs) behind a VPN
 
@@ -10,8 +10,8 @@ a multi-container Docker application to run an [IPFS node](https://hub.docker.co
 1. (optional) add port forwarding rules using the `vpn-sidecar` environment variables
 1. run `docker-compose up`
 
-if everything works correctly, go-ipfs should be running behind your VPN & you should be able to access its web UI at http://localhost:80/webui & https://localhost:443/webui,
-and its IPFS gateway at http://localhost:8080 e.g. http://localhost:8080/ipfs/QmVmtux8UCk8553R2qVa7CBYJbQ11hfyswqEJmTLYCugPx?.png
+if everything works correctly, go-ipfs should be running behind your OpenVPN client & you should be able to access its web UI at http://localhost:5001/webui
+& its IPFS gateway at http://localhost:8080 e.g. http://localhost:8080/ipfs/QmVmtux8UCk8553R2qVa7CBYJbQ11hfyswqEJmTLYCugPx?.png
 
 ## how it works
 
