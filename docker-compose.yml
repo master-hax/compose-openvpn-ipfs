@@ -2,7 +2,6 @@ version: "3.7"
 services:
 
   ipfs-node:
-    container_name: ipfs
     image: linuxserver/ipfs
     restart: unless-stopped
     network_mode: service:vpn-sidecar
@@ -13,7 +12,6 @@ services:
       - downloads-volume:/downloads
 
   web-proxy:
-    container_name: proxy
     image: dperson/nginx
     restart: unless-stopped
     environment:
@@ -36,13 +34,10 @@ services:
       - isolated_ipfs_network
 
   vpn-sidecar:
+    image: dperson/openvpn-client
     restart: unless-stopped
     networks:
       - isolated_ipfs_network
-
-    # use this block for OpenVPN
-    container_name: ovpnclient
-    image: dperson/openvpn-client
     cap_add:
       - NET_ADMIN
     read_only: true
@@ -59,19 +54,6 @@ services:
     sysctls:
       - net.ipv6.conf.all.disable_ipv6=0 # for raspberry pi compatibility?
 
-    # use this block for Wireguard
-    # container_name: wgclient
-    # image: lscr.io/linuxserver/wireguard
-    # cap_add:
-    #   - NET_ADMIN
-    #   - SYS_MODULE
-    # volumes:
-    #   - /lib/modules:/lib/modules
-    #   - wgclient-data-volume:/config
-    # sysctls:
-    #   - net.ipv4.conf.all.src_valid_mark=1
-    #   - net.ipv6.conf.all.disable_ipv6=0 # for raspberry pi compatibility?
-
 volumes:
   ipfs-node-data-volume: # go-ipfs application files - change to a persistent location
     driver_opts:
@@ -87,12 +69,6 @@ volumes:
         o: bind
         type: none
         device: "$PWD/openvpn/"   
-  # wgclient-data-volume: # writeable location of wg0.conf
-  #   driver: local
-  #   driver_opts:
-  #       o: bind
-  #       type: none
-  #       device: "$PWD/wireguard/"
 
 networks:
   default:
