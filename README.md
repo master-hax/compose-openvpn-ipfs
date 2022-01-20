@@ -17,7 +17,4 @@ and its IPFS gateway at http://localhost:8080 e.g. http://localhost:8080/ipfs/Qm
 
 the `ipfs-node` service shares the network stack of the `vpn-sidecar` service (OpenVPN), which is tunneled through your VPN provider. to maintain local connectivity to the `ipfs-node` container's web UI, we proxy to it to through the `web-proxy` service (Nginx) using [Docker container links](https://docs.docker.com/network/links/).
 
-## note: using [Wireguard](https://github.com/linuxserver/docker-wireguard) instead of [OpenVPN](https://github.com/dperson/openvpn-client)
-using OpenVPN is recommended, however you can can change the `vpn-sidecar` service to use Wireguard instead. then place your `wg0.conf` file in `./wireguard`.
-
-note that Wireguard does not have a firewall in case of misconfiguration or an easy port forwarding setup. however i have had success with the rules proposed [here](https://github.com/linuxserver/docker-wireguard/issues/58#issuecomment-723702782).
+## note: a [Wireguard](https://github.com/master-hax/compose-wireguard-ipfs) version is also available
