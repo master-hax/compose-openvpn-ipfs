@@ -1,6 +1,6 @@
 # compose-openvpn-ipfs
 
-a multi-container Docker application to run an [IPFS node](https://hub.docker.com/r/linuxserver/ipfs) behind an OpenVPN client
+a multi-container Docker application to run an [IPFS node](https://hub.docker.com/r/linuxserver/ipfs) behind an [OpenVPN client](https://hub.docker.com/r/dperson/openvpn-client)
 
 ## how to set it up
 
