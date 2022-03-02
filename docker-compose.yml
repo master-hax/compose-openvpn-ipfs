@@ -31,13 +31,13 @@ services:
       - /var/cache/nginx
     networks:
       - default
-      - isolated_ipfs_network
+      - isolated_vpn_network
 
   vpn-sidecar:
     image: dperson/openvpn-client
     restart: unless-stopped
     networks:
-      - isolated_ipfs_network
+      - isolated_vpn_network
     cap_add:
       - NET_ADMIN
     read_only: true
@@ -72,4 +72,4 @@ volumes:
 
 networks:
   default:
-  isolated_ipfs_network:
+  isolated_vpn_network:
